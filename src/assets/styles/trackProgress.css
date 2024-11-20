@@ -1,0 +1,312 @@
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.track-progress-target,
+.track-progress-target * {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.track-progress-target {
+  position: relative;
+}
+.track-progress-base,
+.track-progress-connects {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+/* Wrapper for all connect elements.
+ */
+.track-progress-connects {
+  overflow: hidden;
+  z-index: 0;
+}
+.track-progress-connect,
+.track-progress-origin {
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  -ms-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: 0 0;
+  transform-style: flat;
+}
+/* Offset direction
+ */
+.track-progress-txt-dir-rtl.track-progress-horizontal .track-progress-origin {
+  left: 0;
+  right: auto;
+}
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.track-progress-vertical .track-progress-origin {
+  top: -100%;
+  width: 0;
+}
+.track-progress-horizontal .track-progress-origin {
+  height: 0;
+}
+.track-progress-handle {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+}
+.track-progress-touch-area {
+  height: 100%;
+  width: 100%;
+}
+.track-progress-state-tap .track-progress-connect,
+.track-progress-state-tap .track-progress-origin {
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s;
+}
+.track-progress-state-drag * {
+  cursor: inherit !important;
+}
+/* Slider size and handle placement;
+ */
+.track-progress-horizontal {
+  height: 18px;
+}
+.track-progress-horizontal .track-progress-handle {
+  width: 34px;
+  height: 28px;
+  right: -17px;
+  top: -6px;
+}
+.track-progress-vertical {
+  width: 18px;
+}
+.track-progress-vertical .track-progress-handle {
+  width: 28px;
+  height: 34px;
+  right: -6px;
+  bottom: -17px;
+}
+.track-progress-txt-dir-rtl.track-progress-horizontal .track-progress-handle {
+  left: -17px;
+  right: auto;
+}
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.track-progress-target {
+  background: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #d3d3d3;
+  box-shadow:
+    inset 0 1px 1px #f0f0f0,
+    0 3px 6px -5px #bbb;
+}
+.track-progress-connects {
+  border-radius: 3px;
+}
+.track-progress-connect {
+  background: #3fb8af;
+}
+/* Handles and cursors;
+ */
+.track-progress-draggable {
+  cursor: ew-resize;
+}
+.track-progress-vertical .track-progress-draggable {
+  cursor: ns-resize;
+}
+.track-progress-handle {
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  background: #fff;
+  cursor: default;
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ebebeb,
+    0 3px 6px -3px #bbb;
+}
+.track-progress-active {
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ddd,
+    0 3px 6px -3px #bbb;
+}
+/* Handle stripes;
+ */
+.track-progress-handle:before,
+.track-progress-handle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 1px;
+  background: #e8e7e6;
+  left: 14px;
+  top: 6px;
+}
+.track-progress-handle:after {
+  left: 17px;
+}
+.track-progress-vertical .track-progress-handle:before,
+.track-progress-vertical .track-progress-handle:after {
+  width: 14px;
+  height: 1px;
+  left: 6px;
+  top: 14px;
+}
+.track-progress-vertical .track-progress-handle:after {
+  top: 17px;
+}
+/* Disabled state;
+ */
+[disabled] .track-progress-connect {
+  background: #b8b8b8;
+}
+[disabled].track-progress-target,
+[disabled].track-progress-handle,
+[disabled] .track-progress-handle {
+  cursor: not-allowed;
+}
+/* Base;
+ *
+ */
+.track-progress-pips,
+.track-progress-pips * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.track-progress-pips {
+  position: absolute;
+  color: #999;
+}
+/* Values;
+ *
+ */
+.track-progress-value {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+}
+.track-progress-value-sub {
+  color: #ccc;
+  font-size: 10px;
+}
+/* Markings;
+ *
+ */
+.track-progress-marker {
+  position: absolute;
+  background: #ccc;
+}
+.track-progress-marker-sub {
+  background: #aaa;
+}
+.track-progress-marker-large {
+  background: #aaa;
+}
+/* Horizontal layout;
+ *
+ */
+.track-progress-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+.track-progress-value-horizontal {
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+}
+.track-progress-rtl .track-progress-value-horizontal {
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+.track-progress-marker-horizontal.track-progress-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px;
+}
+.track-progress-marker-horizontal.track-progress-marker-sub {
+  height: 10px;
+}
+.track-progress-marker-horizontal.track-progress-marker-large {
+  height: 15px;
+}
+/* Vertical layout;
+ *
+ */
+.track-progress-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+}
+.track-progress-value-vertical {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding-left: 25px;
+}
+.track-progress-rtl .track-progress-value-vertical {
+  -webkit-transform: translate(0, 50%);
+  transform: translate(0, 50%);
+}
+.track-progress-marker-vertical.track-progress-marker {
+  width: 5px;
+  height: 2px;
+  margin-top: -1px;
+}
+.track-progress-marker-vertical.track-progress-marker-sub {
+  width: 10px;
+}
+.track-progress-marker-vertical.track-progress-marker-large {
+  width: 15px;
+}
+.track-progress-tooltip {
+  display: block;
+  position: absolute;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+.track-progress-horizontal .track-progress-tooltip {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 120%;
+}
+.track-progress-vertical .track-progress-tooltip {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  top: 50%;
+  right: 120%;
+}
+.track-progress-horizontal .track-progress-origin > .track-progress-tooltip {
+  -webkit-transform: translate(50%, 0);
+  transform: translate(50%, 0);
+  left: auto;
+  bottom: 10px;
+}
+.track-progress-vertical .track-progress-origin > .track-progress-tooltip {
+  -webkit-transform: translate(0, -18px);
+  transform: translate(0, -18px);
+  top: auto;
+  right: 28px;
+}
